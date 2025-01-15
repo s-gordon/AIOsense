@@ -8,7 +8,7 @@ microphone:
     id: mic_i2s
     channel: left
     adc_type: external
-    i2s_din_pin: "${i2s_din_pin}"  # SD
+    i2s_din_pin: "${i2s_mic_din_pin}"  # SD
     i2s_audio_id: i2s_in
     pdm: false
 
@@ -16,7 +16,7 @@ speaker:
   - platform: i2s_audio
     dac_type: external
     id: i2s_speaker
-    i2s_dout_pin: "${i2s_din_pin}"
+    i2s_dout_pin: "${i2s_speaker_din_pin}"
     channel: mono
 
 micro_wake_word:

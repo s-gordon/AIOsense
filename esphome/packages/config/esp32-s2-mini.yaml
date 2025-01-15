@@ -9,6 +9,8 @@ substitutions:
   sen0395_io_pin: GPIO5
   uart_rx_pin: GPIO37
   uart_tx_pin: GPIO39
+  i2s_mic_din_pin: GPIO38
+  i2s_speaker_din_pin: GPIO40
 
 esp32:
   board: esp32-s2-saola-1
