@@ -3,12 +3,12 @@ substitutions:
   led_strobe_on: 50ms
   led_strobe_off: 100ms
 
-output:
-  - id: led_output
-    platform: gpio
-    pin:
-      number: "${led_pin}"
-      inverted: "${led_invert}"
+# output:
+#   - id: led_output
+#     platform: gpio
+#     pin:
+#       number: "${led_pin}"
+#       inverted: "${led_invert}"
 
 light:
   - platform: status_led
