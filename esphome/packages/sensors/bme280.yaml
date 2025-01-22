@@ -2,10 +2,10 @@
 
 substitutions:
   bme_address: "0x76"
-  bme_update_interval: 30s
+  # bme_update_interval: 30s
   humidity_offset: "0"
   pressure_offset: "0"
-  temperature_offset: "0"
+  temperature_offset: "-6"
 
 number:
   - platform: template
@@ -22,8 +22,8 @@ number:
     initial_value: 0
     icon: "mdi:thermometer"
     entity_category: config
-    on_value:
-      - lambda: 'id(bme280_sensor).update();'
+    # on_value:
+    #   - lambda: 'id(bme280_sensor).update();'
 
   - platform: template
     name: "Humidity Offset"
@@ -39,8 +39,8 @@ number:
     initial_value: 0
     icon: "mdi:water-percent"
     entity_category: config
-    on_value:
-      - lambda: 'id(bme280_sensor).update();'
+    # on_value:
+    #   - lambda: 'id(bme280_sensor).update();'
 
   - platform: template
     name: "Pressure Offset"
@@ -56,8 +56,8 @@ number:
     initial_value: 0
     icon: "mdi:gauge"
     entity_category: config
-    on_value:
-      - lambda: 'id(bme280_sensor).update();'
+    # on_value:
+    #   - lambda: 'id(bme280_sensor).update();'
 
 sensor:
   - platform: bme280_i2c
@@ -66,16 +66,23 @@ sensor:
     update_interval: "${bme_update_interval}"
     temperature:
       name: "Temperature"
+      id: temperature
+      state_class: measurement
       filters:
         - offset: ${temperature_offset}
         - lambda: "return x + id(temperature_offset_ui).state;"
     humidity:
       name: "Humidity"
+      id: humidity
+      state_class: measurement
       filters:
         - offset: ${humidity_offset}
         - lambda: "return x + id(humidity_offset_ui).state;"
     pressure:
       name: "Pressure"
+      id: pressure
+      device_class: atmospheric_pressure
+      state_class: measurement
       filters:
         - offset: ${pressure_offset}
         - lambda: "return x + id(pressure_offset_ui).state;"
