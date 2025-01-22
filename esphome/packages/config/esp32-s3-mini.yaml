@@ -1,10 +1,11 @@
 substitutions:
   buzzer_pin: GPIO13
-  i2s_bclk_pin: GPIO47 #SCK
-  i2s_din_pin: GPIO46 #SD
-  i2s_lrclk_pin: GPIO15 #WS
+  i2s_bclk_pin: GPIO38 #SCK
+  i2s_din_pin: GPIO37 #SD
+  i2s_lrclk_pin: GPIO34 #WS
+  i2s_speaker_din_pin: GPIO33
   pir_pin: GPIO11
-  rgb_led_pin: GPIO38
+  rgb_led_pin: GPIO47
   rgb_led_type: RGB
   sen0395_io_pin: GPIO4
   uart_rx_pin: GPIO43
