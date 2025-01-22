@@ -8,6 +8,7 @@ uart:
   stop_bits: 1
 
 ld2410:
+  throttle: 100ms
 
 number:
   - platform: ld2410
