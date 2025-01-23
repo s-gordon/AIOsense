@@ -16,7 +16,9 @@ microphone:
 speaker:
   - platform: i2s_audio
     id: va_speaker
-    i2s_dout_pin: ${i2s_speaker_din_pin}
+    i2s_dout_pin:
+      number: ${i2s_speaker_din_pin}
+      allow_other_uses: true
     dac_type: external
     channel: mono
 
@@ -25,6 +27,7 @@ voice_assistant:
   noise_suppression_level: 2
   auto_gain: 31dBFS
   volume_multiplier: 2.0
+  speaker: va_speaker
   use_wake_word: true
   on_listening:
     - light.turn_on:
