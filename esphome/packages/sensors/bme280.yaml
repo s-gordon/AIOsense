@@ -2,10 +2,10 @@
 
 substitutions:
   bme_address: "0x76"
-  # bme_update_interval: 30s
+  bme_update_interval: "30s"
   humidity_offset: "0"
   pressure_offset: "0"
-  temperature_offset: "-6"
+  temperature_offset: "0"
 
 number:
   - platform: template
