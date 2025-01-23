@@ -18,7 +18,7 @@ speaker:
     id: va_speaker
     i2s_dout_pin:
       number: ${i2s_speaker_din_pin}
-      allow_other_uses: true
+      # allow_other_uses: true
     dac_type: external
     channel: mono
 
