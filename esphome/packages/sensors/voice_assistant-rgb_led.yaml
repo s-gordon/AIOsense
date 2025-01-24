@@ -99,7 +99,6 @@ esphome:
         - voice_assistant.start_continuous:
 
 micro_wake_word:
-  vad:
   models:
     - model: alexa
     - model: okay_nabu
