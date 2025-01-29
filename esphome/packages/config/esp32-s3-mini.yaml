@@ -3,7 +3,7 @@ substitutions:
   i2s_bclk_pin: GPIO38 #SCK
   i2s_din_pin: GPIO37 #SD
   i2s_lrclk_pin: GPIO34 #WS
-  i2s_speaker_din_pin: GPIO33
+  i2s_dout_pin: GPIO33
   pir_pin: GPIO11
   rgb_led_pin: GPIO47
   rgb_led_type: RGB
