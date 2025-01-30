@@ -1,20 +1,28 @@
 i2s_audio:
-  id: i2s_in
+  id: i2s_audiobus
   i2s_lrclk_pin: "${i2s_lrclk_pin}"  # WS
   i2s_bclk_pin: "${i2s_bclk_pin}"  # SCK
 
 microphone:
   - platform: i2s_audio
-    id: mic_i2s
+    id: external_microphone
     channel: left
     adc_type: external
     i2s_din_pin: "${i2s_din_pin}"  # SD
-    i2s_audio_id: i2s_in
+    i2s_audio_id: i2s_audiobus
     pdm: false
+
+speaker:
+  - platform: i2s_audio
+    id: va_speaker
+    i2s_dout_pin: ${i2s_dout_pin}
+    dac_type: external
+    channel: mono
 
 voice_assistant:
   id: va
-  microphone: mic_i2s
+  microphone: external_microphone
+  speaker: va_speaker
   noise_suppression_level: 2
   auto_gain: 31dBFS
   volume_multiplier: 2.0
