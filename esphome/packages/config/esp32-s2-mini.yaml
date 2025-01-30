@@ -1,8 +1,9 @@
 substitutions:
   buzzer_pin: GPIO9
-  i2s_bclk_pin: GPIO7
-  i2s_din_pin: "${buzzer_pin}"
-  i2s_lrclk_pin: GPIO12
+  i2s_bclk_pin: GPIO36    # SCK
+  i2s_din_pin: GPIO38     # mic
+  i2s_dout_pin: GPIO40    # speaker
+  i2s_lrclk_pin: GPIO34   # WS
   led_invert: "true"
   led_pin: GPIO15
   pir_pin: GPIO11
@@ -13,8 +14,11 @@ substitutions:
 esp32:
   board: esp32-s2-saola-1
   variant: ESP32S2
+  flash_size: 4MB
   framework:
-    type: arduino
+    type: esp-idf
+    version: 5.3.1            # https://github.com/espressif/esp-idf/releases
+    platform_version: 6.9.0   # https://github.com/platformio/platform-espressif32/releases/
 
 i2c:
   sda: GPIO33

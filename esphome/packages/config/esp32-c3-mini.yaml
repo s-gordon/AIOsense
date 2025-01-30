@@ -1,7 +1,6 @@
 substitutions:
   buzzer_pin: A0
   i2s_bclk_pin: A1
-  i2s_din_pin: "${buzzer_pin}"
   i2s_lrclk_pin: A5
   pir_pin: A4
   rgb_led_pin: GPIO7

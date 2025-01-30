@@ -1,8 +1,9 @@
 substitutions:
   buzzer_pin: GPIO13
-  i2s_bclk_pin: GPIO12
-  i2s_din_pin: "${buzzer_pin}"
-  i2s_lrclk_pin: GPIO10
+  i2s_bclk_pin: GPIO38    # SCK
+  i2s_din_pin: GPIO37     # mic
+  i2s_dout_pin: GPIO33    # speaker
+  i2s_lrclk_pin: GPIO34   # WS
   pir_pin: GPIO11
   rgb_led_pin: GPIO47
   rgb_led_type: RGB
@@ -13,13 +14,16 @@ substitutions:
 esp32:
   board: esp32-s3-devkitc-1
   variant: esp32s3
+  flash_size: 4MB
   framework:
-    type: arduino
-    version: latest
+    type: esp-idf
+    version: 5.3.1            # https://github.com/espressif/esp-idf/releases
+    platform_version: 6.9.0   # https://github.com/platformio/platform-espressif32/releases/
 
 i2c:
   sda: GPIO35
   scl: GPIO36
+  frequency: 400kHz
 
 sensor:
   - platform: internal_temperature
