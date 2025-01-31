@@ -23,6 +23,14 @@ light:
               duration: "${led_strobe_on}"
             - state: false
               duration: "${led_strobe_off}"
+      - pulse:
+          name: "Fast Pulse"
+          transition_length: 0.1s
+          update_interval: 0.4s
+      - pulse:
+          name: "Slow Pulse"
+          transition_length: 1s
+          update_interval: 2s
 
 esphome:
   on_boot:

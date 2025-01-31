@@ -11,3 +11,10 @@ media_player:
     i2s_dout_pin: "${i2s_dout_pin}"
     mode: mono
     id: speaker
+    on_announcement:
+      - light.turn_on:
+          id: led
+          effect: "Fast Pulse"
+    on_idle: 
+      - light.turn_off:
+          id: led
