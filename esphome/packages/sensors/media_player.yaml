@@ -1,3 +1,8 @@
+esp32:
+  framework:
+    type: arduino
+    version: recommended
+
 i2s_audio:
   id: i2s_audiobus
   i2s_lrclk_pin: "${i2s_lrclk_pin}"  # WS
