@@ -8,7 +8,7 @@ substitutions:
   sen0395_io_pin: A2
   uart_rx_pin: GPIO20
   uart_tx_pin: GPIO21
-  led_invert: true
+  led_invert: false
 
 esphome:
   platformio_options:
@@ -17,8 +17,10 @@ esphome:
     board_build.flash_mode: dio
 
 esp32:
-  board: lolin_c3_mini
-  variant: ESP32C3
+  board: lolin_s2_mini
+  flash_size: 4MB
+  framework:
+    type: arduino
 
 wifi:
   output_power: 8.5dBm
