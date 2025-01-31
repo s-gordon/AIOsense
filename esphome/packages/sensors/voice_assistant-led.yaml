@@ -13,7 +13,7 @@ microphone:
     pdm: false
 
 speaker:
-  - platform: i2s_audiobus
+  - platform: i2s_audio
     id: va_speaker
     i2s_dout_pin: ${i2s_dout_pin}
     dac_type: external
