@@ -5,14 +5,14 @@ substitutions:
 
 output:
   - id: led_output
-    platform: gpio
+    platform: ledc
     pin:
       number: "${led_pin}"
       inverted: "${led_invert}"
 
 light:
   - id: led
-    platform: binary
+    platform: monochromatic
     name: "LED"
     output: led_output
     icon: "mdi:led-outline"
