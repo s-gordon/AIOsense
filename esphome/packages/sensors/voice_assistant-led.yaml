@@ -68,15 +68,15 @@ script:
   - id: reset_led
     then:
       - if:
-        condition:
-          - lambda: return id(wake_word_engine_location).state == "In Home Assistant";
-          - switch.is_on: listen_light
-        then:
-        - light.turn_on:
-            id: led
-            effect: none
-        else:
-          - light.turn_off: led
+          condition:
+            - lambda: return id(wake_word_engine_location).state == "In Home Assistant";
+            - switch.is_on: listen_light
+          then:
+          - light.turn_on:
+              id: led
+              effect: none
+          else:
+            - light.turn_off: led
 
 switch:
   - platform: template
