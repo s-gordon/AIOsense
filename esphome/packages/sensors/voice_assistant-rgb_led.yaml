@@ -4,6 +4,10 @@ esp32:
     version: 5.3.1            # https://github.com/espressif/esp-idf/releases
     platform_version: 6.9.0   # https://github.com/platformio/platform-espressif32/releases/
 
+psram:
+  mode: quad
+  speed: 80MHz
+
 i2s_audio:
   id: i2s_audiobus
   i2s_lrclk_pin: "${i2s_lrclk_pin}"  # WS
