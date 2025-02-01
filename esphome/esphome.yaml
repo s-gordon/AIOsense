@@ -49,10 +49,11 @@ packages:
       
       # ----- media player (use for esp32-s3 mini and esp32-s2 mini only) -----
       # ----- choose media player or voice assistant sensors, not both -----
-      - esphome/packages/sensors/media_player.yaml  # disable for voice assistant
+      # - esphome/packages/sensors/media_player-psram.yaml  # ESP32-S2-mini
+      - esphome/packages/sensors/media_player.yaml        # ESP32-S3-mini
 
       # ----- voice assistant (use rgb_led for esp32-c3 & esp32-s3 only-----
-      - esphome/packages/sensors/voice_assistant-rgb_led.yaml
+      # - esphome/packages/sensors/voice_assistant-rgb_led.yaml
       # - esphome/packages/sensors/voice_assistant-led.yaml
 
       # ----- led modules (use rgb_led for esp32-c3 & esp32-s3 only) -----

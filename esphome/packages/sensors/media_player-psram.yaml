@@ -1,0 +1,29 @@
+esp32:
+  framework:
+    type: arduino
+    version: recommended
+
+psram:
+  mode: quad
+  speed: 80MHz
+
+i2s_audio:
+  id: i2s_audiobus
+  i2s_lrclk_pin: "${i2s_lrclk_pin}"  # WS
+  i2s_bclk_pin: "${i2s_bclk_pin}"  # SCK
+
+media_player:
+  - platform: i2s_audio
+    name: ESPHome I2S Media Player
+    dac_type: external
+    i2s_audio_id: i2s_audiobus
+    i2s_dout_pin: "${i2s_dout_pin}"
+    mode: mono
+    id: speaker
+    on_announcement:
+      - light.turn_on:
+          id: led
+          effect: "Fast Pulse"
+    on_idle: 
+      - light.turn_off:
+          id: led
