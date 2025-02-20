@@ -4,13 +4,13 @@ substitutions:
   led_strobe_off: 100ms
 
 light:
-  - platform: neopixelbus
+  - platform: esp32_rmt_led_strip
+    pin: "${rgb_led_pin}"
+    rgb_order: "${rgb_led_type}"
+    chipset: ws2812
     name: "LED"
     id: led
-    type: "${rgb_led_type}"
-    variant: WS2812X
     num_leds: 1
-    pin: "${rgb_led_pin}"
     icon: "mdi:led-outline"
     effects:
       - strobe:

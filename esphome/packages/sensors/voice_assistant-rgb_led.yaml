@@ -1,7 +1,7 @@
 esp32:
   framework:
     type: esp-idf
-    version: 5.3.1            # https://github.com/espressif/esp-idf/releases
+    version: latest            # https://github.com/espressif/esp-idf/releases
     platform_version: 6.9.0   # https://github.com/platformio/platform-espressif32/releases/
 
 psram:
@@ -29,10 +29,24 @@ speaker:
     dac_type: external
     channel: mono
 
+media_player:
+  - platform: speaker
+    announcement_pipeline:
+      speaker: va_speaker
+    name: ESPHome I2S Media Player
+    id: va_media_player
+    on_announcement:
+      - light.turn_on:
+          id: led
+          effect: "Fast Pulse"
+    on_idle: 
+      - light.turn_off:
+          id: led
+
 voice_assistant:
   id: va
   microphone: external_microphone
-  speaker: va_speaker
+  media_plater: va_media_player
   noise_suppression_level: 2
   auto_gain: 31dBFS
   volume_multiplier: 2.0
