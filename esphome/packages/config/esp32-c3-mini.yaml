@@ -20,7 +20,8 @@ esp32:
   board: lolin_c3_mini
   flash_size: 4MB
   framework:
-    type: arduino
+    type: esp-idf
+    version: latest
 
 wifi:
   output_power: 8.5dBm
