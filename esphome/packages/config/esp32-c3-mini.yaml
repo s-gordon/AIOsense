@@ -8,7 +8,7 @@ substitutions:
   sen0395_io_pin: A2
   uart_rx_pin: GPIO20
   uart_tx_pin: GPIO21
-  led_invert: false
+  led_invert: "false"
 
 esphome:
   platformio_options:
