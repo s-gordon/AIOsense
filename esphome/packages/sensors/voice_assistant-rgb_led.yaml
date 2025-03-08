@@ -34,13 +34,13 @@ microphone:
     channel: left
     adc_type: external
     i2s_din_pin: "${i2s_din_pin}"  # SD
-    i2s_audio_id: i2s_audio
+    i2s_audio_id: i2s_audiobus
     pdm: false
 
 voice_assistant:
   id: va
   microphone: external_microphone
-  media_plater: va_media_player
+  media_player: va_media_player
   noise_suppression_level: 2
   auto_gain: 31dBFS
   volume_multiplier: 2.0
@@ -172,15 +172,6 @@ select:
             - delay: 500ms
             - script.execute: reset_led
 
-esphome:
-  min_version: 2023.10.0
-  on_boot:
-    - priority: -100
-      then:
-        - wait_until: api.connected
-        - delay: 1s
-        - voice_assistant.start_continuous:
-
 micro_wake_word:
   models:
     - model: alexa
@@ -188,3 +179,11 @@ micro_wake_word:
   on_wake_word_detected:
     - voice_assistant.start:
         wake_word: !lambda return wake_word;
+
+esphome:
+  on_boot:
+    - priority: -100
+      then:
+        - wait_until: api.connected
+        - delay: 1s
+        - voice_assistant.start_continuous:
