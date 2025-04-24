@@ -119,9 +119,3 @@ select:
 
 esphome:
   min_version: 2023.10.0
-  on_boot:
-    - priority: -100
-      then:
-        - wait_until: api.connected
-        - delay: 1s
-        - voice_assistant.start_continuous:

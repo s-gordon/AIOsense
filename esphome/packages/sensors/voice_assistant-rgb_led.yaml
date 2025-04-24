@@ -179,11 +179,3 @@ micro_wake_word:
   on_wake_word_detected:
     - voice_assistant.start:
         wake_word: !lambda return wake_word;
-
-esphome:
-  on_boot:
-    - priority: -100
-      then:
-        - wait_until: api.connected
-        - delay: 1s
-        - voice_assistant.start_continuous:
