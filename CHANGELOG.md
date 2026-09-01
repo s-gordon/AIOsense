@@ -150,6 +150,16 @@ release-please and appear above this section. Do not hand-edit below this line.
 - Swapping rx & tx (closes [#97](https://github.com/Schluggi/AIOsense/issues/97))
 - Hanging restore_state to restore_mode  (fixes [#95](https://github.com/Schluggi/AIOsense/issues/95))
 
+## [1.0.1](https://github.com/s-gordon/AIOsense/compare/aio-v1.0.0...aio-v1.0.1) (2026-09-01)
+
+
+### Fixes
+
+* make status_led usable with the audio packages ([7deaa63](https://github.com/s-gordon/AIOsense/commit/7deaa6358638d60cceb89572ff014886d8aabcf5))
+* remove orphaned gitlink from an esphome build directory ([3f5988a](https://github.com/s-gordon/AIOsense/commit/3f5988a399f29c91030d3ec1663fcbcf4352dcbf))
+* stop two packages weakening the min_version floor ([ee7292b](https://github.com/s-gordon/AIOsense/commit/ee7292b909eaf2c9cec4522ffbeb5714700fbec0))
+* unpin esp-idf 5.3.1 in the LED voice assistant ([765a36b](https://github.com/s-gordon/AIOsense/commit/765a36b129561b2d10086f4cdb96e7a93bf7fae0))
+
 ## v2.1.0 (2023-06-20)
 
 
@@ -357,5 +367,3 @@ release-please and appear above this section. Do not hand-edit below this line.
 ### Other
 
 - First release
-
-
