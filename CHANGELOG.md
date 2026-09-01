@@ -150,6 +150,26 @@ release-please and appear above this section. Do not hand-edit below this line.
 - Swapping rx & tx (closes [#97](https://github.com/Schluggi/AIOsense/issues/97))
 - Hanging restore_state to restore_mode  (fixes [#95](https://github.com/Schluggi/AIOsense/issues/95))
 
+## [1.1.0](https://github.com/s-gordon/AIOsense/compare/aio-v1.0.0...aio-v1.1.0) (2026-09-01)
+
+
+### Features
+
+* **case:** Files for the upright stand mount ([#80](https://github.com/s-gordon/AIOsense/issues/80)) ([e680fee](https://github.com/s-gordon/AIOsense/commit/e680fee064c1c1f0ecc330d1266db99cf6a9798b))
+
+
+### Fixes
+
+* :bug: output is a required parameter for light.monochromatic ([0e2fe68](https://github.com/s-gordon/AIOsense/commit/0e2fe6859e81f845326b5f318869291a1a6b3827))
+* amp swapped terminal label ([92be98a](https://github.com/s-gordon/AIOsense/commit/92be98aa7f2f150ac8f43e6d803c62ae36fc03c0))
+* update LED configuration to use output reference ([1047b28](https://github.com/s-gordon/AIOsense/commit/1047b2866aabce0254c6e34838ba3f52db6f40a4))
+* yaml lint ([6b7c34c](https://github.com/s-gordon/AIOsense/commit/6b7c34cfc7d399ff8291ae76776cab2b51286339))
+
+
+### Documentation
+
+* **changelog:** seed changelog from pre-convention history ([ae63dae](https://github.com/s-gordon/AIOsense/commit/ae63dae55e00d3044fc3a7cc9a49547d0a560651))
+
 ## v2.1.0 (2023-06-20)
 
 
@@ -357,5 +377,3 @@ release-please and appear above this section. Do not hand-edit below this line.
 ### Other
 
 - First release
-
-
