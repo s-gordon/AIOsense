@@ -24,14 +24,12 @@ commercially ones.
 - CO² equivalent
 - Humidity sensor
 - Light / Illumination sensor
-- PIR motion sensor
-- Temperature sensor
-- mmWave / Radar sensor
-
-**Coming soon:**
-- Full Voice Assistant support
 - Microphone
+- PIR motion sensor
 - Speaker
+- Temperature sensor
+- Voice Assistant (ESP32-S2 / S3 only)
+- mmWave / Radar sensor
 
 All supported sensors & modules are listed in the documentation:
 [Sensor Modules](https://aiosense.readthedocs.io/en/latest/sensors/)

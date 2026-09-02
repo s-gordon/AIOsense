@@ -1,3 +1,16 @@
+# Full voice assistant for the ESP32-S3 mini, paired with the addressable LED
+# from rgb_led.yaml. This is the complete stack: microphone, speaker, a
+# media_player entity, and on-device wake word.
+#
+# S3 only in practice. rgb_led.yaml needs ${rgb_led_pin}, which the S2 does not
+# define; and the C3 defines no i2s_din/dout pins, so it cannot do audio at all.
+# The S2 equivalent is voice_assistant-led.yaml, which is more limited.
+#
+# Do not enable this alongside media_player.yaml -- the media_player declared
+# below is the same component and they will collide.
+
+# 2MB PSRAM on the S3 mini, which is quad-mode. Octal is for the 8/16MB modules
+# and would stop PSRAM working here entirely, taking wake word with it.
 psram:
   mode: quad
   speed: 80MHz
@@ -14,6 +27,10 @@ speaker:
     dac_type: external
     channel: mono
 
+# Announcement pipeline only, so TTS and notifications work but cannot duck
+# background music -- there is no media pipeline to duck. Adding one needs the
+# mixer and resampler speakers described at
+# https://esphome.io/components/media_player/speaker.html
 media_player:
   - platform: speaker
     announcement_pipeline:
@@ -90,6 +107,9 @@ voice_assistant:
     - voice_assistant.stop:
     - micro_wake_word.stop:
 
+# Restores the idle LED state after any interaction ends. Which state that is
+# depends on the wake word mode and whether the listen light is enabled, hence
+# the nested conditionals rather than a plain turn_off.
 script:
   - id: reset_led
     then:
@@ -133,6 +153,16 @@ switch:
     on_turn_off:
       - script.execute: reset_led
 
+# Three modes, and the choice matters beyond convenience:
+#
+#   In Home Assistant -- start_continuous streams audio to HA constantly. Works
+#                        well, but the radio is transmitting the whole time,
+#                        which is the main reason these devices run warm.
+#   On device         -- micro_wake_word runs locally and only opens a stream
+#                        once a wake word fires. Quieter on the network and
+#                        usually cooler, at the cost of local CPU.
+#   Disable           -- neither. The default, so a freshly flashed device does
+#                        not stream audio anywhere until asked.
 select:
   - id: wake_word_engine_location
     platform: template
@@ -172,6 +202,9 @@ select:
             - delay: 500ms
             - script.execute: reset_led
 
+# On-device wake word. Models are fetched at build time and baked into the
+# firmware, so adding one costs flash. Crashes on the S2 mini, which is why
+# voice_assistant-led.yaml has no equivalent.
 micro_wake_word:
   models:
     - model: alexa
