@@ -6,7 +6,7 @@ substitutions:
 light:
   - platform: esp32_rmt_led_strip
     pin: "${rgb_led_pin}"
-    rgb_order: "${rgb_led_type}"
+    channel_colors: "${rgb_led_type}"
     chipset: ws2812
     name: "LED"
     id: led
