@@ -1,4 +1,8 @@
 substitutions:
+  # Overriding led_invert from a board config does NOT work: board configs are
+  # listed before sensor packages, and a later package's substitution default
+  # wins. Set it in the device config's own substitutions block, which beats
+  # both. GPIO15 on the S2 mini is active-high, hence "false".
   led_invert: "false"
   led_strobe_on: 50ms
   led_strobe_off: 100ms

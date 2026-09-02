@@ -1,0 +1,35 @@
+# CI fixture: ESP32-S2 mini, speaker media player + monochrome LED + LD2410.
+# Mirrors the "downstairs office" device. This is the only S2 combination that
+# uses led.yaml, so it is what pins down led_invert.
+substitutions:
+  name: "ci-s2-media-player-led"
+  friendly_name: "CI S2 Media Player LED"
+  bh1750_update_interval: "30s"
+  bme_address: "0x76"
+  bme_update_interval: 30s
+  ld2410_timeout: "10s"
+  pir_delayed_off: "10s"
+
+packages:
+  base: !include ../esphome/packages/config/base.yaml
+  board: !include ../esphome/packages/config/esp32-s2-mini.yaml
+  bh1750: !include ../esphome/packages/sensors/bh1750.yaml
+  bme280: !include ../esphome/packages/sensors/bme280.yaml
+  buzzer: !include ../esphome/packages/sensors/buzzer.yaml
+  occupancy: !include ../esphome/packages/sensors/occupancy.yaml
+  pir: !include ../esphome/packages/sensors/pir.yaml
+  media_player: !include ../esphome/packages/sensors/media_player-psram.yaml
+  led: !include ../esphome/packages/sensors/led.yaml
+  ld2410: !include ../esphome/packages/sensors/ld2410.yaml
+
+api:
+  encryption:
+    key: !secret apikey
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
