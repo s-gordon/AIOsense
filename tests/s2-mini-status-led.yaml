@@ -13,7 +13,7 @@ packages:
   buzzer: !include ../esphome/packages/sensors/buzzer.yaml
   occupancy: !include ../esphome/packages/sensors/occupancy.yaml
   pir: !include ../esphome/packages/sensors/pir.yaml
-  media_player: !include ../esphome/packages/sensors/media_player-psram.yaml
+  media_player: !include ../esphome/packages/sensors/media_player.yaml
   status_led: !include ../esphome/packages/sensors/status_led.yaml
   sen0395: !include ../esphome/packages/sensors/sen0395.yaml
 api:
