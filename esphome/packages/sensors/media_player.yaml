@@ -1,3 +1,17 @@
+# Speaker output without a microphone: gives Home Assistant a media_player
+# entity for TTS and notification sounds (chime_tts, Node-RED and similar).
+# There is no voice control here -- for that, use one of the voice_assistant
+# packages instead. Do not enable both; they declare the same components.
+#
+# Requires an I2S amplifier and a board that breaks out i2s_dout_pin, which
+# means the S2 mini or S3 mini. The C3 mini defines no i2s_din/dout pins and
+# cannot do audio at all.
+#
+# Pair with an LED package that provides a "Fast Pulse" effect -- led.yaml,
+# rgb_led.yaml or status_led.yaml all do.
+
+# 2MB PSRAM on both the S2 and S3 mini, which is quad-mode. Octal is for the
+# 8/16MB modules and would stop PSRAM working here entirely.
 psram:
   mode: quad
   speed: 80MHz
@@ -14,6 +28,11 @@ speaker:
     dac_type: external
     channel: mono
 
+# Announcement pipeline only, so TTS and notifications play but there is no
+# separate media pipeline -- announcements cannot duck background music,
+# because there is no background stream to duck. Adding one needs the mixer
+# and resampler speakers documented at
+# https://esphome.io/components/media_player/speaker.html
 media_player:
   - platform: speaker
     announcement_pipeline:

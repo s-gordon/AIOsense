@@ -1,3 +1,21 @@
+# Full voice assistant for the ESP32-S2 mini, paired with the single-colour LED
+# from led.yaml or status_led.yaml. Those are the only LED packages the S2 can
+# use, since it is the only board defining ${led_pin}.
+#
+# Two things this does NOT provide, both deliberate:
+#
+#   * No media_player entity. voice_assistant talks to the speaker directly, so
+#     Home Assistant gets no media_player to target. If you want TTS or
+#     notification sounds (chime_tts, Node-RED), you need media_player.yaml --
+#     and you cannot have both, as they declare the same components. On the S2
+#     this is a genuine either/or.
+#   * No micro_wake_word. On-device wake word crashes on the S2 mini, so wake
+#     word detection is Home Assistant side only and the selector below offers
+#     no "On device" option. The S3 mini has both; see
+#     voice_assistant-rgb_led.yaml.
+
+# 2MB PSRAM on the S2 mini, which is quad-mode. Octal is for the 8/16MB modules
+# and would stop PSRAM working here entirely.
 psram:
   mode: quad
   speed: 80MHz
@@ -72,6 +90,8 @@ script:
           else:
             - light.turn_off: led
 
+# Whether the LED stays lit while the assistant is idle but listening, so the
+# device shows at a glance that it is armed. Purely cosmetic.
 switch:
   - platform: template
     name: "VA Listen Light"
@@ -84,6 +104,9 @@ switch:
     on_turn_off:
       - script.execute: reset_led
 
+# Only two options here, unlike the S3: on-device wake word crashes on the S2
+# mini, so "On device" is deliberately absent. Defaults to Disable so a freshly
+# flashed device does not start streaming audio to Home Assistant unasked.
 select:
   - id: wake_word_engine_location
     platform: template
