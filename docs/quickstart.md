@@ -78,7 +78,6 @@ We are looking for the ESPHome add-on (without beta and dev) and install it.
 
 The installation can take several minutes, so please be patient. Afterward we
 enable `Start on boot`, `Auto update` and `Show in sidebar`.
-![homeassistant_esphome_add-on.png](img/homeassistant_esphome_add-on.png)
 
 We can now open our dashboard by clicking on it at the sidebar:
 ![sidebar.png](img/sidebar.png)
