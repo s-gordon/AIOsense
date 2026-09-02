@@ -150,6 +150,17 @@ release-please and appear above this section. Do not hand-edit below this line.
 - Swapping rx & tx (closes [#97](https://github.com/Schluggi/AIOsense/issues/97))
 - Hanging restore_state to restore_mode  (fixes [#95](https://github.com/Schluggi/AIOsense/issues/95))
 
+## [2.0.0](https://github.com/s-gordon/AIOsense/compare/aio-v1.0.2...aio-v2.0.0) (2026-09-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* esphome/packages/sensors/media_player-psram.yaml is now esphome/packages/sensors/media_player.yaml. Device configs fetch packages by exact path, so any config listing the old path will fail to build once it moves to this release. Update the `files:` entry when bumping `ref:`. Configs pinned to aio-v1.0.2 or earlier are unaffected until they move.
+
+### Fixes
+
+* consolidate to a single working media_player package ([58bd33e](https://github.com/s-gordon/AIOsense/commit/58bd33e5f424e69c719b3518325ebe4b80f12746))
+
 ## [1.0.2](https://github.com/s-gordon/AIOsense/compare/aio-v1.0.1...aio-v1.0.2) (2026-09-02)
 
 
