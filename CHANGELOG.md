@@ -150,6 +150,14 @@ release-please and appear above this section. Do not hand-edit below this line.
 - Swapping rx & tx (closes [#97](https://github.com/Schluggi/AIOsense/issues/97))
 - Hanging restore_state to restore_mode  (fixes [#95](https://github.com/Schluggi/AIOsense/issues/95))
 
+## [3.0.1](https://github.com/s-gordon/AIOsense/compare/aio-v3.0.0...aio-v3.0.1) (2026-09-02)
+
+
+### Fixes
+
+* read the wake word select with select.is, not a removed C++ member ([279dda1](https://github.com/s-gordon/AIOsense/commit/279dda1753608013d1f7b4693a75303b31ba3dbe))
+* read the wake word select with select.is, not a removed C++ member ([2388089](https://github.com/s-gordon/AIOsense/commit/2388089d6cc5af94e6c3944f0edfa06547dd275d))
+
 ## [3.0.0](https://github.com/s-gordon/AIOsense/compare/aio-v2.0.0...aio-v3.0.0) (2026-09-02)
 
 
