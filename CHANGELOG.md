@@ -150,6 +150,14 @@ release-please and appear above this section. Do not hand-edit below this line.
 - Swapping rx & tx (closes [#97](https://github.com/Schluggi/AIOsense/issues/97))
 - Hanging restore_state to restore_mode  (fixes [#95](https://github.com/Schluggi/AIOsense/issues/95))
 
+## [1.0.2](https://github.com/s-gordon/AIOsense/compare/aio-v1.0.1...aio-v1.0.2) (2026-09-02)
+
+
+### Fixes
+
+* drop led_invert declarations that never take effect ([eaed307](https://github.com/s-gordon/AIOsense/commit/eaed307bc8984f9688aebce73822e9f4bac429d7))
+* drop led_invert declarations that never take effect ([cd86563](https://github.com/s-gordon/AIOsense/commit/cd8656342437b1c7ba4e43f3fd7e82f9198a1395))
+
 ## [1.0.1](https://github.com/s-gordon/AIOsense/compare/aio-v1.0.0...aio-v1.0.1) (2026-09-01)
 
 
