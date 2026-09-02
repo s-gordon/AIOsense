@@ -150,6 +150,17 @@ release-please and appear above this section. Do not hand-edit below this line.
 - Swapping rx & tx (closes [#97](https://github.com/Schluggi/AIOsense/issues/97))
 - Hanging restore_state to restore_mode  (fixes [#95](https://github.com/Schluggi/AIOsense/issues/95))
 
+## [3.0.0](https://github.com/s-gordon/AIOsense/compare/aio-v2.0.0...aio-v3.0.0) (2026-09-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* ESPHome 2026.8.0 or newer is now required. Installs older than that will fail the min_version check instead of building. Configs pinned to aio-v2.0.0 or earlier are unaffected until they move.
+
+### Features
+
+* adopt channel_colors and raise the ESPHome floor to 2026.8.0 ([88e0a3b](https://github.com/s-gordon/AIOsense/commit/88e0a3bd7284225016749e0155ecc025c5a4a4ac))
+
 ## [2.0.0](https://github.com/s-gordon/AIOsense/compare/aio-v1.0.2...aio-v2.0.0) (2026-09-02)
 
 
