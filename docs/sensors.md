@@ -67,23 +67,23 @@ to use the official 3D printed case you have to connect it to the lower slot.
 
 ## 🎙️Microphone
 
-> **WARNING**: Not supported yet! The mic uses some SPI pins. If you want to use
-> the mic you **can not** use any
-> generic device connected to the these IO-header pins: CS, SCK, MISO as well as
-> any SPI based sensor at all.
+> **Note:** The mic shares pins with the SPI header. If you fit a microphone you
+> **cannot** use any generic device on the CS, SCK or MISO IO-header pins, nor
+> any SPI based sensor.
 
-We designed the board while having the future in mind. So the idea to have a
-microphone in each room for a voice
-assistant would be awesome. Unfortunately, ESPHome does not support this
-yet ([ESPHome feature request](https://github.com/esphome/feature-requests/issues/1254)).
-This in mind we can't test
-this at all but Open Home (the company behind ESPHome and Home Assisant)
-just [release there plans](https://www.youtube.com/watch?v=D936T1Ze8-4) for 2023
-and mention that there is hope this
-will be implemented in the upcoming year.
+A microphone gives the board voice assistant support, and together with a
+speaker lets it answer. See [Audio & Voice Assistant](audio.md) for what each
+ESPHome package provides, which boards support audio, and how to enable it.
+
+Audio requires an ESP32-S2 mini or ESP32-S3 mini. The ESP32-C3 mini does not
+break out the I2S data pins and cannot drive a microphone or speaker.
 
 The AIOsense PCB is designed to work only with INMP441-modules which are known
 for their high quality digital audio.
+
+> **Warning:** On PCB v3.0.0-rc1 the microphone footprint has GND and VCC
+> swapped ([issue #333](https://github.com/Schluggi/AIOsense/issues/333)). Check
+> your wiring before debugging audio in software.
 
 ### Where to buy?
 
