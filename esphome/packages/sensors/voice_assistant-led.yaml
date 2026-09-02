@@ -52,7 +52,9 @@ voice_assistant:
     - delay: 5s
     - if:
         condition:
-          lambda: return id(wake_word_engine_location).state == "In Home Assistant";
+          select.is:
+            id: wake_word_engine_location
+            options: ["In Home Assistant"]
         then:
           - voice_assistant.start_continuous:
   on_client_disconnected:
@@ -63,7 +65,9 @@ script:
     then:
       - if:
           condition:
-            - lambda: return id(wake_word_engine_location).state == "In Home Assistant";
+            - select.is:
+                id: wake_word_engine_location
+                options: ["In Home Assistant"]
             - switch.is_on: listen_light
           then:
             - light.turn_on:
