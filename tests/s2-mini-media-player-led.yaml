@@ -18,7 +18,7 @@ packages:
   buzzer: !include ../esphome/packages/sensors/buzzer.yaml
   occupancy: !include ../esphome/packages/sensors/occupancy.yaml
   pir: !include ../esphome/packages/sensors/pir.yaml
-  media_player: !include ../esphome/packages/sensors/media_player-psram.yaml
+  media_player: !include ../esphome/packages/sensors/media_player.yaml
   led: !include ../esphome/packages/sensors/led.yaml
   ld2410: !include ../esphome/packages/sensors/ld2410.yaml
 
